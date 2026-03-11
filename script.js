@@ -155,7 +155,7 @@ alert("Click My Location first");
 return;
 }
 
-let phone="+918501908457";
+let phone="+917981471506";
 
 let message="Emergency! I need help. My location: https://maps.google.com/?q="
 +userLocation[0]+","+userLocation[1];
