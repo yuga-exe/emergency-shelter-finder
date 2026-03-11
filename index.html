@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
-<head>
 
+<head>
 <title>Emergency Shelter Finder</title>
 
 <link rel="stylesheet" href="style.css">
@@ -14,7 +14,7 @@
 
 <header>
 <h1>Emergency Shelter Finder</h1>
-<p>Find the nearest safe shelter during disasters</p>
+<p>Locate safe shelters during disasters</p>
 </header>
 
 <div class="controls">
@@ -23,14 +23,55 @@
 
 <button onclick="showShelters()">Show Shelters</button>
 
+<button onclick="findNearest()">Nearest Shelter</button>
+
 </div>
 
 <div id="map"></div>
 
-<div class="info">
-<h2>Disaster Help Information</h2>
+<div class="alerts">
 
-<p>During disasters like floods, earthquakes, or cyclones, people can use this system to locate nearby emergency shelters quickly and safely.</p>
+<h2>🚨 Disaster Alerts</h2>
+
+<ul>
+<li>Flood warning in low-lying areas</li>
+<li>Heavy rainfall expected tonight</li>
+<li>Emergency helpline: 108</li>
+</ul>
+
+</div>
+
+<div class="shelter-info">
+
+<h2>Shelter Information</h2>
+
+<table>
+
+<tr>
+<th>Name</th>
+<th>Capacity</th>
+<th>Contact</th>
+</tr>
+
+<tr>
+<td>Shelter 1</td>
+<td>200</td>
+<td>9876543210</td>
+</tr>
+
+<tr>
+<td>Shelter 2</td>
+<td>150</td>
+<td>9123456780</td>
+</tr>
+
+<tr>
+<td>Shelter 3</td>
+<td>300</td>
+<td>9988776655</td>
+</tr>
+
+</table>
 
 </div>
 
@@ -38,4 +79,5 @@
 <script src="script.js"></script>
 
 </body>
+
 </html>
