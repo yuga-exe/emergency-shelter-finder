@@ -1,4 +1,4 @@
-let map = L.map('map').setView([15.8,78.0],7);
+let map = L.map('map').setView([15.2,78.3],6);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
 attribution:'© OpenStreetMap'
@@ -50,13 +50,19 @@ let nearestShelter=null;
 
 function showShelters(){
 
+let markers=[];
+
 shelters.forEach(function(s){
 
 L.marker([s.lat,s.lng])
 .addTo(map)
 .bindPopup(s.name);
 
+markers.push([s.lat,s.lng]);
+
 });
+
+map.fitBounds(markers);
 
 }
 
