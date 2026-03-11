@@ -1,61 +1,60 @@
-body{
+<!DOCTYPE html>
+<html>
 
-font-family:Arial;
-margin:0;
-background:#f4f4f4;
-text-align:center;
+<head>
 
-}
+<title>Emergency Shelter Finder</title>
 
-header{
+<link rel="stylesheet" href="style.css">
 
-background:#c62828;
-color:white;
-padding:20px;
+<link rel="stylesheet"
+href="https://unpkg.com/leaflet/dist/leaflet.css"/>
 
-}
+</head>
 
-.controls{
+<body>
 
-margin:20px;
+<header>
 
-}
+<h1>Emergency Shelter Finder</h1>
+<p>Find safe shelters during disasters in Andhra Pradesh</p>
 
-button{
+</header>
 
-padding:10px 18px;
-margin:6px;
-font-size:15px;
-background:#1976d2;
-color:white;
-border:none;
-border-radius:6px;
-cursor:pointer;
+<div class="controls">
 
-}
+<button onclick="getLocation()">My Location</button>
 
-button:hover{
+<button onclick="showShelters()">Show Shelters</button>
 
-background:#0d47a1;
+<button onclick="findNearest()">Nearest Shelter</button>
 
-}
+<button onclick="showRoute()">Route to Shelter</button>
 
-#map{
+<button onclick="sendSOS()">SOS</button>
 
-height:500px;
-width:90%;
-margin:auto;
-border:2px solid #ccc;
+</div>
 
-}
+<div id="map"></div>
 
-.alerts{
+<div class="alerts">
 
-background:#fff3cd;
-width:80%;
-margin:auto;
-margin-top:20px;
-padding:15px;
-border-radius:8px;
+<h2>Disaster Alerts</h2>
 
-}
+<ul>
+
+<li>Flood warning in low areas</li>
+<li>Heavy rainfall expected</li>
+<li>Emergency helpline: 108</li>
+
+</ul>
+
+</div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
