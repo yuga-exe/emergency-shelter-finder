@@ -1,60 +1,48 @@
-<!DOCTYPE html>
-<html>
+body{
+font-family:Arial;
+margin:0;
+background:#f4f4f4;
+text-align:center;
+}
 
-<head>
+header{
+background:#c62828;
+color:white;
+padding:20px;
+}
 
-<title>Emergency Shelter Finder</title>
+.controls{
+margin:20px;
+}
 
-<link rel="stylesheet" href="style.css">
+button{
+padding:10px 18px;
+margin:6px;
+font-size:15px;
+background:#1976d2;
+color:white;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
 
-<link rel="stylesheet"
-href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+button:hover{
+background:#0d47a1;
+}
 
-</head>
+#map{
+height:500px;
+width:90%;
+margin:auto;
+margin-top:20px;
+border:2px solid #ccc;
+}
 
-<body>
-
-<header>
-
-<h1>Emergency Shelter Finder</h1>
-<p>Find safe shelters during disasters in Andhra Pradesh</p>
-
-</header>
-
-<div class="controls">
-
-<button onclick="getLocation()">My Location</button>
-
-<button onclick="showShelters()">Show Shelters</button>
-
-<button onclick="findNearest()">Nearest Shelter</button>
-
-<button onclick="showRoute()">Route to Shelter</button>
-
-<button onclick="sendSOS()">SOS</button>
-
-</div>
-
-<div id="map"></div>
-
-<div class="alerts">
-
-<h2>Disaster Alerts</h2>
-
-<ul>
-
-<li>Flood warning in low areas</li>
-<li>Heavy rainfall expected</li>
-<li>Emergency helpline: 108</li>
-
-</ul>
-
-</div>
-
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-<script src="script.js"></script>
-
-</body>
-
-</html>
+.alerts{
+background:#fff3cd;
+width:80%;
+margin:auto;
+margin-top:20px;
+padding:15px;
+border-radius:8px;
+}
