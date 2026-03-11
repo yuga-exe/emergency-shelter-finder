@@ -1,63 +1,43 @@
+let map = L.map('map').setView([16.5062,80.6480],13);
 
-let map;
-
-function initMap() {
-
-map = new google.maps.Map(document.getElementById("map"), {
-center: { lat: 16.5062, lng: 80.6480 },
-zoom: 12,
-});
-
-}
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+attribution:'© OpenStreetMap contributors'
+}).addTo(map);
 
 function getLocation(){
 
-if(navigator.geolocation){
+navigator.geolocation.getCurrentPosition(function(position){
 
-navigator.geolocation.getCurrentPosition(showPosition);
+let lat = position.coords.latitude;
+let lng = position.coords.longitude;
 
-}else{
+let userLocation=[lat,lng];
 
-alert("Geolocation not supported");
+map.setView(userLocation,14);
 
-}
+L.marker(userLocation)
+.addTo(map)
+.bindPopup("You are here")
+.openPopup();
 
-}
-
-function showPosition(position){
-
-let userLat = position.coords.latitude;
-let userLng = position.coords.longitude;
-
-let userLocation = {lat:userLat,lng:userLng};
-
-map.setCenter(userLocation);
-
-new google.maps.Marker({
-position:userLocation,
-map:map,
-title:"Your Location"
 });
 
-addShelters();
-
 }
 
-function addShelters(){
+function showShelters(){
 
-const shelters = [
-{lat:16.5062,lng:80.6480,name:"Shelter 1"},
-{lat:16.5200,lng:80.6300,name:"Shelter 2"},
-{lat:16.4950,lng:80.6600,name:"Shelter 3"}
+let shelters=[
+[16.5062,80.6480,"Shelter 1"],
+[16.5200,80.6300,"Shelter 2"],
+[16.4950,80.6600,"Shelter 3"],
+[16.5100,80.6400,"Shelter 4"]
 ];
 
-shelters.forEach(shelter =>{
+shelters.forEach(function(shelter){
 
-new google.maps.Marker({
-position:{lat:shelter.lat,lng:shelter.lng},
-map:map,
-title:shelter.name
-});
+L.marker([shelter[0],shelter[1]])
+.addTo(map)
+.bindPopup(shelter[2]);
 
 });
 
