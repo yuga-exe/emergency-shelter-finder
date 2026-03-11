@@ -138,11 +138,16 @@ window.open(url);
 
 function sendSOS(){
 
-let message = "Emergency! I need help. Please send assistance.";
+if(!userLocation){
+alert("Click My Location first");
+return;
+}
 
-let phone = "7981471506";   // replace with your mobile number
+let phone = "7981471506";
+
+let message = "Emergency! I need help. My location: https://maps.google.com/?q="
++userLocation[0]+","+userLocation[1];
 
 window.location.href = "sms:"+phone+"?body="+encodeURIComponent(message);
 
-}
 }
