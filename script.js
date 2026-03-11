@@ -138,6 +138,11 @@ window.open(url);
 
 function sendSOS(){
 
-alert("SOS sent to emergency services!");
+let message = "Emergency! I need help. Please send assistance.";
 
+let phone = "7981471506";   // replace with your mobile number
+
+window.location.href = "sms:"+phone+"?body="+encodeURIComponent(message);
+
+}
 }
