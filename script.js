@@ -1,3 +1,4 @@
+// Initialize Map
 let map = L.map('map').setView([15.2,78.3],6);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
@@ -5,7 +6,10 @@ attribution:'© OpenStreetMap'
 }).addTo(map);
 
 
+// Shelter Locations
 let shelters = [
+
+/* KURNOOL */
 
 {lat:15.8333,lng:78.0500,name:"Kurnool Shelter 1"},
 {lat:15.8360,lng:78.0520,name:"Kurnool Shelter 2"},
@@ -13,17 +17,23 @@ let shelters = [
 {lat:15.8290,lng:78.0540,name:"Kurnool Shelter 4"},
 {lat:15.8350,lng:78.0580,name:"Kurnool Shelter 5"},
 
+/* NANDYAL */
+
 {lat:15.4833,lng:78.4833,name:"Nandyal Shelter 1"},
 {lat:15.4860,lng:78.4860,name:"Nandyal Shelter 2"},
 {lat:15.4810,lng:78.4800,name:"Nandyal Shelter 3"},
 {lat:15.4790,lng:78.4880,name:"Nandyal Shelter 4"},
 {lat:15.4850,lng:78.4900,name:"Nandyal Shelter 5"},
 
+/* KADAPA */
+
 {lat:14.4667,lng:78.8167,name:"Kadapa Shelter 1"},
 {lat:14.4690,lng:78.8200,name:"Kadapa Shelter 2"},
 {lat:14.4630,lng:78.8140,name:"Kadapa Shelter 3"},
 {lat:14.4700,lng:78.8220,name:"Kadapa Shelter 4"},
 {lat:14.4680,lng:78.8100,name:"Kadapa Shelter 5"},
+
+/* TIRUPATI */
 
 {lat:13.6288,lng:79.4192,name:"Tirupati Shelter 1"},
 {lat:13.6310,lng:79.4220,name:"Tirupati Shelter 2"},
@@ -33,10 +43,11 @@ let shelters = [
 
 ];
 
-let userLocation=null;
-let nearestShelter=null;
+let userLocation = null;
+let nearestShelter = null;
 
 
+// Show Shelters
 function showShelters(){
 
 let bounds=[];
@@ -56,12 +67,13 @@ map.fitBounds(bounds);
 }
 
 
+// Get User Location
 function getLocation(){
 
 navigator.geolocation.getCurrentPosition(function(pos){
 
-let lat=pos.coords.latitude;
-let lng=pos.coords.longitude;
+let lat = pos.coords.latitude;
+let lng = pos.coords.longitude;
 
 userLocation=[lat,lng];
 
@@ -77,6 +89,7 @@ map.setView(userLocation,10);
 }
 
 
+// Distance Calculation
 function distance(a,b,c,d){
 
 return Math.sqrt((a-c)**2+(b-d)**2);
@@ -84,13 +97,12 @@ return Math.sqrt((a-c)**2+(b-d)**2);
 }
 
 
+// Find Nearest Shelter
 function findNearest(){
 
 if(!userLocation){
-
 alert("Click My Location first");
 return;
-
 }
 
 let min=999;
@@ -116,13 +128,12 @@ L.marker([nearestShelter.lat,nearestShelter.lng])
 }
 
 
+// Route to Shelter
 function showRoute(){
 
 if(!nearestShelter||!userLocation){
-
 alert("Find nearest shelter first");
 return;
-
 }
 
 let lat=userLocation[0];
@@ -136,6 +147,7 @@ window.open(url);
 }
 
 
+// SOS Function
 function sendSOS(){
 
 if(!userLocation){
@@ -143,11 +155,11 @@ alert("Click My Location first");
 return;
 }
 
-let phone = "+918501908457";
+let phone="+918501908457";
 
-let message = "Emergency! I need help. My location: https://maps.google.com/?q="
+let message="Emergency! I need help. My location: https://maps.google.com/?q="
 +userLocation[0]+","+userLocation[1];
 
-window.location.href = "sms:"+phone+"?body="+encodeURIComponent(message);
+window.location.href="sms:"+phone+"?body="+encodeURIComponent(message);
 
 }
